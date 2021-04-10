@@ -1,4 +1,4 @@
-﻿# Copyright (c) 2018, NVIDIA CORPORATION. All rights reserved.
+# Copyright (c) 2018, NVIDIA CORPORATION. All rights reserved.
 #
 # This work is licensed under the Creative Commons Attribution-NonCommercial
 # 4.0 International License. To view a copy of this license, visit
@@ -117,7 +117,7 @@ examples='''examples:
 '''
 
 if __name__ == "__main__":
-    def train(args):
+    def train(args): # Define training function steps
         if args:
             n2n = args.noise2noise if 'noise2noise' in args else True
             train_config.noise2noise = n2n
@@ -189,7 +189,7 @@ if __name__ == "__main__":
     subparsers = parser.add_subparsers(help='Sub-commands', dest='command')
     parser_train = subparsers.add_parser('train', help='Train a network')
     parser_train.add_argument('--noise2noise', nargs='?', type=str2bool, const=True, default=True, help='Noise2noise (--noise2noise=true) or noise2clean (--noise2noise=false).  Default is noise2noise=true.')
-    parser_train.add_argument('--noise', default='gaussian', help='Type of noise corruption (one of: gaussian, poisson)')
+    parser_train.add_argument('--noise', default='gaussian', help='Type of noise corruption (one of: gaussian, poisson)') #Change me?
     parser_train.add_argument('--long-train', default=False, help='Train for a very long time (500k iterations or 500k*minibatch image)')
     parser_train.add_argument('--train-tfrecords', help='Filename of the training set tfrecords file')
     parser_train.set_defaults(func=train)
